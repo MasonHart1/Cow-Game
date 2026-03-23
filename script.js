@@ -17,7 +17,7 @@ shuffleCards()
 function checkIfWon() {
     const cows = Array.from(document.querySelector('.container').children);
     if (cows.every(cow => cow.classList.contains('clicked'))) {
-        alert('You won!');
+        window.location.reload()
     }
 }
 
