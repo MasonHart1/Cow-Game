@@ -1,0 +1,62 @@
+* {
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a4636;
+}
+
+.ticButtons {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    width: fit-content;
+    margin: 50px auto;
+}
+
+.ticButton {
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    border: 2px solid white;
+    background-color: #1a4636;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: 100px;
+}
+
+.ticButton:nth-child(-n+3) {
+    border-top: none;
+}
+
+.ticButton:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.ticButton:nth-child(3n+1) {
+    border-left: none;
+}
+
+.ticButton:nth-child(3n) {
+    border-right: none;
+}
+
+#return {
+    width: 10%;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #1a523d;
+    border-radius: 8px;
+    border: 2px solid black
+}
+
+#return:hover {
+    background-color: #1a4636;
+}

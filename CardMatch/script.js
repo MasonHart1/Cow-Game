@@ -19,7 +19,7 @@ function checkIfWon() {
     if (cows.every(cow => cow.classList.contains('clicked'))) {
         alert('You won!');
         setTimeout(function () {
-            window.location.reload()
+            window.location.href = '../index.html';
         }, 500)
     }
 }
