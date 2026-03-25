@@ -35,6 +35,7 @@ document.querySelectorAll('.ticButton').forEach(function (button) {
     })
 })
 
+
 function checkIfWin() {
     for (let combination of winningCombinations) {
         let [a, b, c] = combination;

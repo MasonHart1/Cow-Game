@@ -49,12 +49,12 @@ h1 {
 }
 
 #return {
-    width: 10%;
+    width: 30%;
     font-size: 25px;
     cursor: pointer;
     background-color: #1a523d;
     border-radius: 8px;
-    border: 2px solid black
+    border: 2px solid black;
 }
 
 #return:hover {

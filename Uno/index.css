@@ -1,0 +1,54 @@
+* {
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a4636;
+}
+
+.cowCard {
+    position: relative;
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a4636;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cowCard .topLeft {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.cowCard .bottomRight {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.img {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a4636;
+}

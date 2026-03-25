@@ -17,10 +17,12 @@ shuffleCards()
 function checkIfWon() {
     const cows = Array.from(document.querySelector('.container').children);
     if (cows.every(cow => cow.classList.contains('clicked'))) {
-        alert('You won!');
-        setTimeout(function () {
-            window.location.href = '../index.html';
-        }, 500)
+        confetti({
+            particleCount: 100,
+            spread: 360,
+            origin: { y: document.getElementById("return").offsetTop / window.innerHeight }
+        })
+        document.getElementById("title").textContent = "You won!";
     }
 }
 
@@ -48,10 +50,6 @@ document.querySelectorAll('div.cow').forEach(function (div) {
                     clicked[1].classList.remove('clicked');
                     clicked = [];
                 }, 500);
-                setTimeout(function () {
-                    alert('Try again!');
-
-                }, 900)
             }
         }
     });

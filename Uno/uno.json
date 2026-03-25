@@ -1,0 +1,20 @@
+{
+    "cows": {
+        "Bessie": "../Images/cow1.png",
+        "Daisy": "../Images/cow2.png",
+        "MooMoo": "../Images/cow3.png",
+        "Farmer": "../Images/cow4.png",
+        "Sprinkles": "../Images/cow5.png",
+        "Cowsley": "../Images/cow6.png",
+        "Buttercup": "../Images/cow7.png",
+        "CreamPuff": "../Images/cow8.png",
+        "Maple": "../Images/cow9.png",
+        "Hazel": "../Images/cow10.png",
+        "Cocoa": "../Images/cow11.png",
+        "Snowbell": "../Images/cow12.png",
+        "Pebbles": "../Images/cow13.png",
+        "Toffee": "../Images/cow14.png",
+        "Marshmallow": "../Images/cow15.png"
+    },
+    "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "skip", "reverse", "draw2", "draw4", "wild"]
+}
