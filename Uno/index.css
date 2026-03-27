@@ -23,21 +23,21 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #1a4636;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease;
 }
 
 .cowCard .topLeft {
     position: absolute;
     top: -10px;
     left: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .cowCard .bottomRight {
     position: absolute;
     bottom: -10px;
     right: 10px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .img {
@@ -51,4 +51,75 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #1a4636;
+}
+
+#playerHand {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    bottom: 4rem;
+}
+
+#playerHand .cowCard {
+    margin-left: -40px;
+    /* adjust overlap amount */
+    transition: transform 0.5s;
+}
+
+#playerHand .cowCard:first-child {
+    margin-left: 0;
+    /* keep first card normal */
+}
+
+#playerHand .cowCard:hover {
+    transform: scale(1.1) translateY(-100px);
+}
+
+#playArea .cowCard {
+    position: absolute;
+}
+
+#playArea {
+    margin-top: 13em;
+    margin-right: 11em
+}
+
+#draw {
+    position: absolute;
+    top: 240px;
+    left: 1050px;
+    width: 125px;
+    background-color: #1a4636;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 50px;
+    height: 175px;
+}
+
+.cowCard.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    75% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
