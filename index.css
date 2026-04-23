@@ -25,38 +25,42 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: 10px;
     padding: 10px;
     width: 90%;
-    height: 70vh;
     border-radius: 8px;
     justify-items: center;
     gap: 10px;
 }
 
 .gameCard {
-    width: 50%;
+    /* Scales with viewport, targeting ~200px, min 140px, max 240px */
+    width: clamp(140px, 15vw, 240px);
+    height: clamp(140px, 15vw, 240px);
     border: 2px solid black;
-    height: 30%;
     border-radius: 8px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #1a4636;
+    position: relative; /* ← anchors the button inside the card */
 }
 
 button {
     position: absolute;
-    bottom: 38rem;
-    width: 10%;
-    height: 50px;
-    font-size: 25px;
+    bottom: 10px; /* ← always 10px from card bottom, on any screen */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: clamp(30px, 4vw, 50px);
+    font-size: clamp(14px, 1.5vw, 25px);
     font-weight: 500;
     border-radius: 15px;
     border: 1px solid black;
     background-color: #1a523d;
+    white-space: nowrap;
 }
 
 button:hover {
@@ -64,5 +68,5 @@ button:hover {
 }
 
 #playTest {
-    font-size: 20px;
+    font-size: clamp(11px, 1.2vw, 20px);
 }
