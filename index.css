@@ -25,23 +25,25 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
     margin: 10px;
     padding: 10px;
     width: 90%;
     border-radius: 8px;
     justify-items: center;
-    gap: 10px;
+    gap: 10%;
+    box-sizing: border-box;
 }
 
 .gameCard {
     /* Scales with viewport, targeting ~200px, min 140px, max 240px */
-    width: clamp(140px, 15vw, 240px);
-    height: clamp(140px, 15vw, 240px);
+    width: clamp(340px, 15vw, 440px);
+    height: clamp(340px, 15vw, 440px);
     border: 2px solid black;
     border-radius: 8px;
     padding: 1rem;
     display: flex;
+    font-size: clamp(14px, 15vw, 25px);
     flex-direction: column;
     align-items: center;
     background-color: #1a4636;

@@ -32,3 +32,13 @@ input[name="from_name"], input[name="from_email"] {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+#seeAll {
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    width: 15%;
+    height: 5%;
+    font-size: larger;
+    font-weight: bolder;
+}
