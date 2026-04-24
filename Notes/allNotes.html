@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="allNotes.css">
+    <title>Document</title>
+</head>
+<body>
+    <button id="return" onclick="window.location.href='index.html'">Home</button>
+    <script>
+        const container = document.getElementById("container")
+        let noteId = window.localStorage.getItem("noteId")
+
+        for (let i = 1; i < noteId; i++) {
+            document.writeln(`<div class="note">Note ${i}: ${window.localStorage.getItem("noteId" + i)}</div><br>`)
+        }
+    </script>
+</body>
+</html>

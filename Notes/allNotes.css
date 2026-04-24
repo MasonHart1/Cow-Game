@@ -1,0 +1,29 @@
+* {
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a4636;
+}
+
+.note {
+    font-size: clamp(15px, 1.5vw, 25px);
+    margin: 10px;
+    padding: 10px;
+}
+
+#return {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: clamp(15px, 1.5vw, 25px);
+    background-color: #22614a;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
