@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="allNotes.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Document</title>
 </head>
-<body>
-    <button id="return" onclick="window.location.href='index.html'">Home</button>
-    <script>
-        const container = document.getElementById("container")
-        let noteId = window.localStorage.getItem("noteId")
 
-        for (let i = 1; i < noteId; i++) {
-            document.writeln(`<div class="note">Note ${i}: ${window.localStorage.getItem("noteId" + i)}</div><br>`)
+<body>
+    <div id="container"></div>
+    <button id="return" onclick="window.location.href='index.html'">Home</button>
+    <script type="module">
+        const supabase = window.supabase.createClient(
+            'https://qgdnavrvqtuzhyqrtxfe.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnZG5hdnJ2cXR1emh5cXJ0eGZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwNzY0MTksImV4cCI6MjA5MjY1MjQxOX0.zkkqLMJwEIZKerPpFqIAvGO2NQegFnk0617ZclEehDQ'
+        )
+
+        const { data: notes, error } = await supabase
+            .from('notes')
+            .select('*')
+            .eq("name", "Gracie Cottrell")
+
+        for (let i = 0; i < notes.length; i++) {
+            document.getElementById("container").innerHTML += `<p>${notes[i].message}</p>`
         }
     </script>
 </body>
+
 </html>
