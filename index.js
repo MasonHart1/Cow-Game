@@ -11,4 +11,11 @@ ticTacToeButton.addEventListener('click', function () {
 const notesButton = document.getElementById("playNotes")
 notesButton.addEventListener('click', function () {
     window.location.href = "Notes/index.html"
+
 })
+
+const loggedIn = window.localStorage.getItem('loggedIn')
+
+if (loggedIn == "false" || loggedIn == null) {
+    window.location.href = "login.html"
+}
