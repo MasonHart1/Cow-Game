@@ -27,8 +27,8 @@ async function signUp() {
 }
 
 async function login() {
-    const email = document.getElementById("email").value
-    const password = document.getElementById("password").value
+    const email = document.getElementById("loginEmail").value
+    const password = document.getElementById("loginPassword").value
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password

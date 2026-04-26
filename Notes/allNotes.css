@@ -18,12 +18,25 @@ body {
 
 #return {
     position: absolute;
-    top: 25px;
-    left: 25px;
-    font-size: clamp(15px, 1.5vw, 25px);
+    top: 3%;
+    left: 1%;
+    font-size: clamp(12px, 1.5vw, 25px);
     background-color: #22614a;
     border: 2px solid black;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: clamp(4px, 0.8vw, 8px);
+    padding: clamp(6px, 1vw, 10px);
+    color: white;
+}
+
+#return:hover {
+    background-color: rgb(34, 88, 69);
+}
+
+#container {
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+    margin: 10px;
     padding: 10px;
 }

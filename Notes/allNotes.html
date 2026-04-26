@@ -34,7 +34,7 @@
         if (error) throw error
 
         for (let i = 0; i < notes.length; i++) {
-            document.getElementById("container").innerHTML += `<p>${notes[i].message}</p>`
+            document.getElementById("container").innerHTML += `<p>Note ${i + 1}: ${notes[i].message}</p><br>`
         }
     </script>
 </body>
