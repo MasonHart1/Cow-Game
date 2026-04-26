@@ -49,14 +49,18 @@ h1 {
 }
 
 #return {
-    width: 30%;
-    font-size: 25px;
-    cursor: pointer;
-    background-color: #1a523d;
-    border-radius: 8px;
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    font-size: clamp(15px, 1.5vw, 25px);
+    background-color: #22614a;
     border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
 }
 
 #return:hover {
-    background-color: #1a4636;
+    background-color: rgb(34, 88, 69);
 }
