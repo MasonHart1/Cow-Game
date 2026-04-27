@@ -14,6 +14,10 @@
     <button id="return" onclick="window.location.href='../index.html'">Home</button>
     <div id="container">
         <form id="contactForm">
+            <select name="names" id="names">
+                <option value="0">----Select user----</option>
+            </select>
+            <input type="email" name="email" id="email" style="display: none;">
             <input type="text" id="title" name="title" placeholder="Title" required>
             <textarea id="message" name="message" placeholder="Message" required></textarea>
             <button type="submit">Send</button>

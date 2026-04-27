@@ -7,7 +7,7 @@ async function signUp() {
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    const { data, error } = await supabase.auth.signUp({
+    const { data: signupData, error: signupError } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -16,13 +16,21 @@ async function signUp() {
             }
         }
     });
-    console.log("ERROR: ", error)
-    console.log("DATA: ", data)
-    if (!error) {
-        alert("Check your email to verify your account")
+
+    if (signupError) {
+        console.log(signupError.message)
+        return
     }
-    else {
-        console.log(error.message)
+
+    const { error: insertError } = await supabase
+        .from('Users')
+        .insert([{
+            Name: signupData.user?.user_metadata?.first_name,
+            Email: signupData.user?.email,
+            user_id: signupData.user?.id
+        }])
+    if (!signupError && !insertError) {
+        alert("Check your email to verify your account")
     }
 }
 
