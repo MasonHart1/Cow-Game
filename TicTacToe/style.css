@@ -64,3 +64,20 @@ h1 {
 #return:hover {
     background-color: rgb(34, 88, 69);
 }
+
+#restart {
+    position: absolute;
+    top: translateY(100%);
+    left: 47.5%;;
+    font-size: clamp(15px, 1.5vw, 25px);
+    background-color: #22614a;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+}
+
+#restart:hover {
+    background-color: rgb(34, 88, 69);
+}
