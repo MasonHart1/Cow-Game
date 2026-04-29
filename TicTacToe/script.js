@@ -24,6 +24,7 @@ document.querySelectorAll('.ticButton').forEach(function (button) {
         if (button.textContent === '') {
             button.textContent = turn;
             if (checkIfWin()) return;
+            if (checkIfDraw()) return;
         };
         if (turn === player1) {
             turn = player2
@@ -60,6 +61,16 @@ function checkIfWin() {
             returnButton.style.display = 'block';
             return true;
         }
+    }
+    return false;
+}
+
+function checkIfDraw() {
+    let buttons = document.querySelectorAll('.ticButton');
+    if (Array.from(buttons).every(button => button.textContent !== '')) {
+        text.textContent = 'Draw!';
+        returnButton.style.display = 'block';
+        return true;
     }
     return false;
 }

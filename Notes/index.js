@@ -39,3 +39,30 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
     document.getElementById("message").value = ""
 })
+
+async function getUsers() {
+    const { data, error } = await supabase
+        .from("Users")
+        .select("Name")
+
+    for (let i = 0; i < data.length; i++) {
+        let opt = document.createElement("option")
+        opt.textContent = data[i].Name
+        document.getElementById("names").add(opt)
+    }
+}
+
+getUsers()
+
+document.getElementById("names").addEventListener("change", async function () {
+    const { data, error } = await supabase
+        .from("Users")
+        .select("Email")
+        .eq("Name", this.value)
+    
+    if (error) return
+
+    document.getElementById("email").value = data[0].Email
+
+    console.log(data[0].Email)
+})

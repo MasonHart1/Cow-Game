@@ -19,3 +19,8 @@ const loggedIn = window.localStorage.getItem('loggedIn')
 if (loggedIn == "false" || loggedIn == null) {
     window.location.href = "login.html"
 }
+
+const calcButton = document.getElementById("goCalculator")
+calcButton.addEventListener('click', function () {
+    window.location.href = "Calculator/index.html"
+})
