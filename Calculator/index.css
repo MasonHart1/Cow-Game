@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Datatype", monospace;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: white;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a4636;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+.calculator {
+    width: 400px;
+    background: #0d2b1f;
+    border: 1px solid #2a6647;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px #0a1f16,
+        0 24px 64px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+}
+/* ── Display ── */
+.display {
+    padding: 20px 20px 16px;
+    background: #0a1f16;
+    border-bottom: 1px solid #1a4636;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 4px;
+}
+.expression {
+    font-size: 13px;
+    color: #4a8c6a;
+    min-height: 18px;
+    letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+    text-align: right;
+    word-break: break-all;
+}
+.result {
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-align: right;
+    word-break: break-all;
+    transition: transform 0.08s ease, opacity 0.08s;
+}
+.result.flash {
+    transform: scale(0.97);
+    opacity: 0.7;
+}
+/* ── Button Grid ── */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #1a4636;
+    padding: 1px;
+}
+/* Number buttons - green */
+.btn {
+    background: #0d2b1f;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    height: 72px;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    position: relative;
+    transition: background 0.08s, transform 0.06s;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+.btn:hover {
+    background: #112e22;
+}
+.btn:active {
+    background: #0a1f16;
+    transform: scale(0.96);
+}
+/* wide button spans 2 columns */
+.btn.wide {
+    grid-column: span 2;
+    text-align: left;
+    padding-left: 26px;
+}
+/* Accent = top row (AC, +/−, %) - darker purple */
+.btn.accent {
+    color: #e9d5ff;
+    background: #4a1575;
+}
+.btn.accent:hover { background: #581c87; }
+.btn.accent:active { background: #3b0f5e; }
+/* Operator buttons - purple */
+.btn.op {
+    color: #f3e8ff;
+    background: #6b21a8;
+}
+.btn.op:hover { background: #7c3aed; }
+.btn.op:active { background: #581c87; }
+/* Equals - bright purple */
+.btn.op[data-action="equals"] {
+    background: #9333ea;
+    color: #ffffff;
+}
+.btn.op[data-action="equals"]:hover { background: #a855f7; }
+.btn.op[data-action="equals"]:active { background: #7e22ce; }
+/* Active operator indicator */
+.btn.op.active-op {
+    background: #a855f7;
+    color: #ffffff;
+    box-shadow: inset 0 0 0 1px #d8b4fe;
+}
+#return {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    font-size: clamp(15px, 1.5vw, 25px);
+    background-color: #22614a;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+}
+#return:hover {
+    background-color: rgb(34, 88, 69);
+}
