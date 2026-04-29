@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Home page</title>
 </head>
+
 <body>
     <h1>Home page</h1>
 
@@ -34,5 +36,25 @@
     </div>
 
     <script src="index.js"></script>
+
+    <script>
+        supabase = window.supabase.createClient(
+            'https://qgdnavrvqtuzhyqrtxfe.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnZG5hdnJ2cXR1emh5cXJ0eGZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwNzY0MTksImV4cCI6MjA5MjY1MjQxOX0.zkkqLMJwEIZKerPpFqIAvGO2NQegFnk0617ZclEehDQ',
+        )
+        window.addEventListener('load', async () => {
+            const { data: { session } } = await supabase.auth.getSession()
+
+            if (session) {
+                // user is logged in, do whatever you need
+                console.log("Logged in as:", session.user.email)
+                window.localStorage.setItem('loggedIn', 'true')
+            } else {
+                // no session, redirect to login
+                window.location.href = "login.html"
+            }
+        })
+    </script>
 </body>
+
 </html>
