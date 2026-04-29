@@ -18,8 +18,8 @@ async function signUp() {
         options: {
             data: {
                 first_name: name,
-                redirectTo: "https://masonhart1.github.io/Cow-Game/"
-            }
+            },
+            emailRedirectTo: "https://masonhart1.github.io/Cow-Game/"
         }
     });
 
