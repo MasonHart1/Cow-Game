@@ -12,6 +12,23 @@ async function signUp() {
     const name = document.getElementById('name').value
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
+
+    const { data: emails, error: emailsError } = await supabase
+        .from('Users')
+        .select('Email')
+        .eq('Email', email)
+
+    if (emailsError) {
+        console.log(emailsError.message)
+        alert("Error checking email")
+        return
+    }
+    
+    if (emails && emails.length > 0) {
+        alert("Email already exists")
+        return
+    }
+
     const { data: signupData, error: signupError } = await supabase.auth.signUp({
         email,
         password,
@@ -52,6 +69,7 @@ async function login() {
         window.location.href = "index.html"
     }
     else {
+        alert(error.message)
         console.log(error.message)
     }
 }

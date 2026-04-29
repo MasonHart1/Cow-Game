@@ -38,7 +38,7 @@ input[name="title"], select {
     position: absolute;
     top: 3%;
     left: 7%;
-    margin-left: clamp(10px, 3vw, 70px);
+    margin-left: clamp(10px, 3vw, 10px);
     font-size: clamp(5px, 1.5vw, 25px);
     background-color: #22614a;
     border: 2px solid black;
