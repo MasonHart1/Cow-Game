@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Daily Bible Verse</title>
+
+</head>
+
+<body>
+    <h1>Daily Bible Verse</h1>
+
+    <div class="main-row">
+        <div id="containerLeft">
+            <button class="sideBtn" onclick="getDailyBook()">Daily Verse</button>
+            <button class="sideBtn" onclick="getRandomBook()">Random Verse</button>
+            <select id="books">
+                <option value="">-- Choose Your Book --</option>
+            </select>
+        </div>
+
+        <div class="divider"></div>
+        
+        <div id="containerRight">
+            <div id="verseBox">
+                <h2 id="verseTitle">Bible Verse</h2>
+                <p id="verse"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -24,3 +24,8 @@ const calcButton = document.getElementById("goCalculator")
 calcButton.addEventListener('click', function () {
     window.location.href = "Calculator/index.html"
 })
+
+const dailyButton = document.getElementById("goDaily")
+dailyButton.addEventListener('click', function () {
+    window.location.href = "BibleVerse/index.html"
+})
