@@ -4,79 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Daily Bible Verse</title>
+
 </head>
 
 <body>
-    <div id="container"></div>
+    <h1>Daily Bible Verse</h1>
 
-    <button id="test"></button>
+    <div class="main-row">
+        <div id="containerLeft">
+            <button class="sideBtn" onclick="getDailyBook()">Daily Verse</button>
+            <button class="sideBtn" onclick="getRandomBook()">Random Verse</button>
+            <select id="books">
+                <option value="">-- Choose Your Book --</option>
+            </select>
+        </div>
 
-    <script>
-        document.getElementById("test").addEventListener("click", function () {
-            window.localStorage.clear()
-        })
+        <div class="divider"></div>
+        
+        <div id="containerRight">
+            <div id="verseBox">
+                <h2 id="verseTitle">Bible Verse</h2>
+                <p id="verse"></p>
+            </div>
+        </div>
+    </div>
 
-        const translation = 'eng_kjv';
-        const books = ["GEN", "EXO", "LEV", "NUM", "DEU", "JOS", "JDG", "RUT", "1SA", "2SA", "1KI", "2KI", "1CH", "2CH", "EZR", "NEH", "EST", "JOB", "PSA", "PRO", "ECC", "SNG", "ISA", "JER", "LAM", "EZK", "DAN", "HOS", "JOL", "AMO", "OBA", "JON", "MIC", "NAM", "HAB", "ZEP", "HAG", "ZEC", "MAL", "MAT", "MRK", "LUK", "JHN", "ACT", "ROM", "1CO", "2CO", "GAL", "EPH", "PHP", "COL", "1TH", "2TH", "1TI", "2TI", "TIT", "PHM", "HEB", "JAS", "1PE", "2PE", "1JN", "2JN", "3JN", "JUD", "REV"];
-        function seededRandom(seed) {
-            const x = Math.sin(seed) * 10000;
-            return x - Math.floor(x);
-        }
-
-        function getDailySeed() {
-            const today = new Date();
-            // Creates a unique number per day e.g. 20260501
-            return today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        }
-
-        function getRandomBook() {
-            const today = new Date().toDateString();
-            const storedDate = localStorage.getItem("bookDate");
-            const storedVerse = localStorage.getItem("verseOfTheDay");
-            const storedText = localStorage.getItem("verseText");
-
-            if (storedVerse && storedDate === today) {
-                document.getElementById("container").textContent = `${storedVerse} — ${storedText}`;
-            } else {
-                const seed = getDailySeed();
-
-                const bookIndex = Math.floor(seededRandom(seed) * books.length);
-                const randomBook = books[bookIndex];
-
-                fetch(`https://bible.helloao.org/api/${translation}/${randomBook}/1.json`)
-                    .then(request => request.json())
-                    .then(data => {
-                        const numberOfChapters = data.book.numberOfChapters;
-                        const randomChapter = Math.floor(seededRandom(seed + 1) * numberOfChapters) + 1;
-
-                        fetch(`https://bible.helloao.org/api/${translation}/${randomBook}/${randomChapter}.json`)
-                            .then(request => request.json())
-                            .then(chapterData => {
-                                const numberOfVerses = chapterData.numberOfVerses;
-                                const randomVerse = Math.floor(seededRandom(seed + 2) * numberOfVerses) + 1;
-
-                                const verseObj = chapterData.chapter.content.find(
-                                    item => item.type === "verse" && Number(item.number) === Number(randomVerse)
-                                );
-
-                                const verseText = verseObj.content
-                                    .filter(item => typeof item === "string")
-                                    .join(" ");
-
-                                const verseRef = `${randomBook} ${randomChapter}:${randomVerse}`;
-
-                                localStorage.setItem("verseOfTheDay", verseRef);
-                                localStorage.setItem("verseText", verseText);
-                                localStorage.setItem("bookDate", today);
-
-                                document.getElementById("container").textContent = `${verseRef} — ${verseText}`;
-                            });
-                    });
-            }
-        }
-        getRandomBook()
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
