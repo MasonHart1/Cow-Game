@@ -215,12 +215,12 @@ async function chooseBook() {
     const bookRes = await fetch(`https://bible.helloao.org/api/${translation}/${bookId}/1.json`);
     const bookData = await bookRes.json();
     const numberOfChapters = bookData.book.numberOfChapters;
-    const randomChapter = Math.floor(seededRandom(seed + 1) * numberOfChapters) + 1;
+    let randomChapter = chosenBook == "Philippians" ? 4 : Math.floor(seededRandom(seed + 1) * numberOfChapters) + 1;
 
     const chapterRes = await fetch(`https://bible.helloao.org/api/${translation}/${bookId}/${randomChapter}.json`);
     const chapterData = await chapterRes.json();
     const numberOfVerses = chapterData.numberOfVerses;
-    const randomVerse = Math.floor(seededRandom(seed + 2) * numberOfVerses) + 1;
+    let randomVerse = chosenBook == "Philippians" ? 13 : Math.floor(seededRandom(seed + 2) * numberOfVerses) + 1;
 
     const verseObj = chapterData.chapter.content.find(
         item => item.type === "verse" && Number(item.number) === Number(randomVerse)
